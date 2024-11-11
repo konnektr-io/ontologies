@@ -15,7 +15,7 @@
   vann:preferredNamespacePrefix "ex"@en;
   vann:preferredNamespaceUri "https://konnektr.io/ontologies/example#"@en.
 
-<https://konnektr.io/ontologies/Pasta> a owl:Class;
+:Pasta a owl:Class;
   rdfs:label "Pasta";
   rdfs:subClassOf
     <http://www.co-ode.org/ontologies/pizza/pizza.owl#Food>, [ a owl:Restriction;
