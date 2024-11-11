@@ -17,4 +17,17 @@
 
 <Hawai> a owl:Class;
   rdfs:label "Hawai";
-  rdfs:subClassOf <http://www.co-ode.org/ontologies/pizza/pizza.owl#NamedPizza>.
+  rdfs:subClassOf
+    <http://www.co-ode.org/ontologies/pizza/pizza.owl#NamedPizza>, [ a owl:Restriction;
+      owl:onProperty <http://www.co-ode.org/ontologies/pizza/pizza.owl#hasTopping>;
+      owl:someValuesFrom <Pineapple>
+    ].
+
+<Pineapple> a owl:Class;
+  rdfs:label "Pineapple";
+  rdfs:subClassOf <http://www.co-ode.org/ontologies/pizza/pizza.owl#FruitTopping>.
+
+[ a owl:Restriction;
+  owl:onProperty <http://www.co-ode.org/ontologies/pizza/pizza.owl#hasTopping>;
+  owl:someValuesFrom <>
+].
