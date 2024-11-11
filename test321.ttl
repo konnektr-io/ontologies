@@ -1,4 +1,4 @@
-@prefix : <https://konnektr.io/ontologies/example>.
+@prefix : <https://konnektr.io/ontologies/example#>.
 @prefix dc: <http://purl.org/dc/elements/1.1/>.
 @prefix ex: <https://konnektr.io/ontologies/example#>.
 @prefix owl: <http://www.w3.org/2002/07/owl#>.
