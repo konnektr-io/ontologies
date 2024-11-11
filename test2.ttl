@@ -1,14 +1,34 @@
-@base <https://konnektr.io/ontologies/test#>.
-@prefix : <https://konnektr.io/ontologies/test#>.
+@base <https://konnektr.io/ontologies/test>.
+@prefix : <https://konnektr.io/ontologies/test>.
 @prefix dc: <http://purl.org/dc/elements/1.1/>.
 @prefix owl: <http://www.w3.org/2002/07/owl#>.
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix tst: <https://konnektr.io/ontologies/test#>.
 @prefix vann: <http://purl.org/vocab/vann/>.
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
 
 <> a owl:Ontology;
-  dc:created "2024-11-11T14:06:04.676Z"^^xsd:dateTime;
-  dc:creator "Niko Raes"@en;
-  dc:title "Test 2"@en;
-  vann:preferredNamespacePrefix "tst"@en;
-  vann:preferredNamespaceUri "https://konnektr.io/ontologies/test#"@en.
+  dc:created
+    "2024-11-11T14:06:04.676Z"^^xsd:dateTime,
+    "2024-11-09T19:04:39.544Z";
+  dc:creator
+    "Niko Raes"@en,
+    "Niko";
+  dc:description "Test";
+  dc:title
+    "Test 2"@en,
+    "Test";
+  vann:preferredNamespacePrefix
+    "tst"@en,
+    "test";
+  vann:preferredNamespaceUri
+    "https://konnektr.io/ontologies/test#"@en,
+    "https://konnektr.io/ontologies/test#".
+
+<#AnotherPizza> a <http://www.w3.org/2000/01/rdf-schema#Class>;
+  <http://www.w3.org/2000/01/rdf-schema#label> "Another Pizza";
+  <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.co-ode.org/ontologies/pizza/pizza.owl#Pizza>.
+
+<#Hawai> a <http://www.w3.org/2000/01/rdf-schema#Class>;
+  <http://www.w3.org/2000/01/rdf-schema#label> "Hawai";
+  <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.co-ode.org/ontologies/pizza/pizza.owl#NamedPizza>.
