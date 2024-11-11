@@ -3,6 +3,7 @@
 @prefix dc: <http://purl.org/dc/elements/1.1/>.
 @prefix owl: <http://www.w3.org/2002/07/owl#>.
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
 @prefix vann: <http://purl.org/vocab/vann/>.
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
 
@@ -13,3 +14,11 @@
   dc:title "Example"@en;
   vann:preferredNamespacePrefix "ex"@en;
   vann:preferredNamespaceUri "https://konnektr.io/ontologies/example#"@en.
+
+<Pasta> a owl:Class;
+  rdfs:label "Pasta";
+  rdfs:subClassOf
+    <http://www.co-ode.org/ontologies/pizza/pizza.owl#Food>, [ a owl:Restriction;
+      owl:onProperty <http://www.co-ode.org/ontologies/pizza/pizza.owl#hasTopping>;
+      owl:someValuesFrom <http://www.co-ode.org/ontologies/pizza/pizza.owl#TomatoTopping>
+    ].
