@@ -1,0 +1,15 @@
+@base <https://konnektr.io/ontologies/example#>.
+@prefix : <https://konnektr.io/ontologies/example#>.
+@prefix dc: <http://purl.org/dc/elements/1.1/>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix vann: <http://purl.org/vocab/vann/>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+<> a owl:Ontology;
+  dc:created "2024-11-11T14:59:59.965Z"^^xsd:dateTime;
+  dc:creator "Niko Raes"@en;
+  dc:description "Example ontology"@en;
+  dc:title "Example"@en;
+  vann:preferredNamespacePrefix "ex"@en;
+  vann:preferredNamespaceUri "https://konnektr.io/ontologies/example#"@en.
