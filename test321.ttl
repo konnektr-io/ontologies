@@ -21,4 +21,7 @@
     <http://www.co-ode.org/ontologies/pizza/pizza.owl#Food>, [ a owl:Restriction;
       owl:onProperty <http://www.co-ode.org/ontologies/pizza/pizza.owl#hasTopping>;
       owl:someValuesFrom <http://www.co-ode.org/ontologies/pizza/pizza.owl#TomatoTopping>
+    ], [ a owl:Restriction;
+      owl:onProperty <http://www.co-ode.org/ontologies/pizza/pizza.owl#hasTopping>;
+      owl:someValuesFrom <http://www.co-ode.org/ontologies/pizza/pizza.owl#MushroomTopping>
     ].
