@@ -1,13 +1,13 @@
-@base <https://konnektr.io/ontologies/example#>.
-@prefix : <https://konnektr.io/ontologies/example#>.
+@prefix : <https://konnektr.io/ontologies/example>.
 @prefix dc: <http://purl.org/dc/elements/1.1/>.
+@prefix ex: <https://konnektr.io/ontologies/example#>.
 @prefix owl: <http://www.w3.org/2002/07/owl#>.
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
 @prefix vann: <http://purl.org/vocab/vann/>.
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
 
-<> a owl:Ontology;
+: a owl:Ontology;
   dc:created "2024-11-11T14:59:59.965Z"^^xsd:dateTime;
   dc:creator "Niko Raes"@en;
   dc:description "Example ontology"@en;
@@ -15,10 +15,13 @@
   vann:preferredNamespacePrefix "ex"@en;
   vann:preferredNamespaceUri "https://konnektr.io/ontologies/example#"@en.
 
-<Pasta> a owl:Class;
+<https://konnektr.io/ontologies/Pasta> a owl:Class;
   rdfs:label "Pasta";
   rdfs:subClassOf
     <http://www.co-ode.org/ontologies/pizza/pizza.owl#Food>, [ a owl:Restriction;
+      owl:onProperty <http://www.co-ode.org/ontologies/pizza/pizza.owl#hasTopping>;
+      owl:someValuesFrom <http://www.co-ode.org/ontologies/pizza/pizza.owl#LeekTopping>
+    ], [ a owl:Restriction;
       owl:onProperty <http://www.co-ode.org/ontologies/pizza/pizza.owl#hasTopping>;
       owl:someValuesFrom <http://www.co-ode.org/ontologies/pizza/pizza.owl#TomatoTopping>
     ], [ a owl:Restriction;
