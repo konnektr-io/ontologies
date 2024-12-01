@@ -1,0 +1,115 @@
+@prefix ex: <http://konnektr.io/ontologies/example#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex: a owl:Ontology ;
+    rdfs:label "My Ontology" ;
+    rdfs:comment "An example ontology for testing purposes." .
+
+# Define classes
+ex:Person a owl:Class, sh:NodeShape ;
+    rdfs:label "Person" ;
+    sh:property [
+        sh:path ex:firstName ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path ex:lastName ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path ex:age ;
+        sh:datatype xsd:integer ;
+        sh:minCount 0 ;
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path ex:address ;
+        sh:class ex:Address ;
+        sh:minCount 0 ;
+        sh:maxCount 1 ;
+    ] .
+
+ex:Address a owl:Class, sh:NodeShape ;
+    rdfs:label "Address" ;
+    sh:property [
+        sh:path ex:street ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path ex:city ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
+    sh:property [
+        sh:path ex:postalCode ;
+        sh:datatype xsd:string ;
+        sh:pattern "^[0-9]{5}$" ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] .
+
+ex:Employee a owl:Class ;
+    rdfs:subClassOf ex:Person ;
+    rdfs:label "Employee" .
+
+ex:Customer a owl:Class ;
+    rdfs:subClassOf ex:Person ;
+    rdfs:label "Customer" .
+
+ex:firstName a rdf:Property ;
+    rdfs:label "First Name" ;
+    rdfs:domain ex:Person ;
+    rdfs:range xsd:string .
+
+ex:lastName a rdf:Property ;
+    rdfs:label "Last Name" ;
+    rdfs:domain ex:Person ;
+    rdfs:range xsd:string .
+
+ex:age a rdf:Property ;
+    rdfs:label "Age" ;
+    rdfs:domain ex:Person ;
+    rdfs:range xsd:integer .
+
+ex:address a rdf:Property ;
+    rdfs:label "Address" ;
+    rdfs:domain ex:Person ;
+    rdfs:range ex:Address .
+
+ex:street a rdf:Property ;
+    rdfs:label "Street" ;
+    rdfs:domain ex:Address ;
+    rdfs:range xsd:string .
+
+ex:city a rdf:Property ;
+    rdfs:label "City" ;
+    rdfs:domain ex:Address ;
+    rdfs:range xsd:string .
+
+ex:postalCode a rdf:Property ;
+    rdfs:label "Postal Code" ;
+    rdfs:domain ex:Address ;
+    rdfs:range xsd:string .
+
+ex:homeAddress a rdf:Property ;
+    rdfs:subPropertyOf ex:address ;
+    rdfs:label "Home Address" ;
+    rdfs:domain ex:Person ;
+    rdfs:range ex:Address .
+
+ex:workAddress a rdf:Property ;
+    rdfs:subPropertyOf ex:address ;
+    rdfs:label "Work Address" ;
+    rdfs:domain ex:Person ;
+    rdfs:range ex:Address .
