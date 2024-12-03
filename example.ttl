@@ -1,115 +1,156 @@
-@prefix ex: <https://konnektr.io/ontologies/example#> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix sh: <http://www.w3.org/ns/shacl#> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix : <https://konnektr.io/ontologies/example#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix sh: <http://www.w3.org/ns/shacl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
 
-ex: a owl:Ontology ;
-    rdfs:label "My Ontology" ;
-    rdfs:comment "An example ontology for testing purposes." .
+: a owl:Ontology;
+  rdfs:comment "An example ontology for testing purposes.";
+  rdfs:label "My Ontology".
 
-# Define classes
-ex:Person a owl:Class, sh:NodeShape ;
-    rdfs:label "Person" ;
-    sh:property [
-        sh:path ex:firstName ;
-        sh:datatype xsd:string ;
-        sh:minCount 1 ;
-        sh:maxCount 1 ;
-    ] ;
-    sh:property [
-        sh:path ex:lastName ;
-        sh:datatype xsd:string ;
-        sh:minCount 1 ;
-        sh:maxCount 1 ;
-    ] ;
-    sh:property [
-        sh:path ex:age ;
-        sh:datatype xsd:integer ;
-        sh:minCount 0 ;
-        sh:maxCount 1 ;
-    ] ;
-    sh:property [
-        sh:path ex:address ;
-        sh:class ex:Address ;
-        sh:minCount 0 ;
-        sh:maxCount 1 ;
-    ] .
+:address a rdf:Property;
+  rdfs:domain :Person;
+  rdfs:label "Address";
+  rdfs:range :Address.
 
-ex:Address a owl:Class, sh:NodeShape ;
-    rdfs:label "Address" ;
-    sh:property [
-        sh:path ex:street ;
-        sh:datatype xsd:string ;
-        sh:minCount 1 ;
-        sh:maxCount 1 ;
-    ] ;
-    sh:property [
-        sh:path ex:city ;
-        sh:datatype xsd:string ;
-        sh:minCount 1 ;
-        sh:maxCount 1 ;
-    ] ;
-    sh:property [
-        sh:path ex:postalCode ;
-        sh:datatype xsd:string ;
-        sh:pattern "^[0-9]{5}$" ;
-        sh:minCount 1 ;
-        sh:maxCount 1 ;
-    ] .
+:Address a owl:Class, sh:NodeShape;
+  rdfs:label "Address";
+  sh:property [
+      sh:datatype xsd:string;
+      sh:maxCount 1;
+      sh:minCount 1;
+      sh:path :street
+    ], [
+      sh:datatype xsd:string;
+      sh:maxCount 1;
+      sh:minCount 1;
+      sh:path :city
+    ], [
+      sh:datatype xsd:string;
+      sh:maxCount 1;
+      sh:minCount 1;
+      sh:path :postalCode;
+      sh:pattern "^[0-9]{5}$"
+    ], [
+      sh:datatype xsd:string;
+      sh:maxCount 1;
+      sh:minCount 1;
+      sh:path :street
+    ], [
+      sh:datatype xsd:string;
+      sh:maxCount 1;
+      sh:minCount 1;
+      sh:path :city
+    ], [
+      sh:datatype xsd:string;
+      sh:maxCount 1;
+      sh:minCount 1;
+      sh:path :postalCode;
+      sh:pattern "^[0-9]{5}$"
+    ].
 
-ex:Employee a owl:Class ;
-    rdfs:subClassOf ex:Person ;
-    rdfs:label "Employee" .
+:age a rdf:Property;
+  rdfs:domain :Person;
+  rdfs:label "Age";
+  rdfs:range xsd:integer.
 
-ex:Customer a owl:Class ;
-    rdfs:subClassOf ex:Person ;
-    rdfs:label "Customer" .
+:city a rdf:Property;
+  rdfs:domain :Address;
+  rdfs:label "City";
+  rdfs:range xsd:string.
 
-ex:firstName a rdf:Property ;
-    rdfs:label "First Name" ;
-    rdfs:domain ex:Person ;
-    rdfs:range xsd:string .
+:Customer a owl:Class;
+  rdfs:label "Customer";
+  rdfs:subClassOf :Person.
 
-ex:lastName a rdf:Property ;
-    rdfs:label "Last Name" ;
-    rdfs:domain ex:Person ;
-    rdfs:range xsd:string .
+:Employee a owl:Class;
+  rdfs:label "Employee";
+  rdfs:subClassOf :Person.
 
-ex:age a rdf:Property ;
-    rdfs:label "Age" ;
-    rdfs:domain ex:Person ;
-    rdfs:range xsd:integer .
+:firstName a rdf:Property;
+  rdfs:domain :Person;
+  rdfs:label "First Name";
+  rdfs:range xsd:string.
 
-ex:address a rdf:Property ;
-    rdfs:label "Address" ;
-    rdfs:domain ex:Person ;
-    rdfs:range ex:Address .
+:hasJob a owl:ObjectProperty;
+  rdfs:domain :Person;
+  rdfs:label "has job"@en;
+  rdfs:range :Job.
 
-ex:street a rdf:Property ;
-    rdfs:label "Street" ;
-    rdfs:domain ex:Address ;
-    rdfs:range xsd:string .
+:homeAddress a rdf:Property;
+  rdfs:domain :Person;
+  rdfs:label "Home Address";
+  rdfs:range :Address;
+  rdfs:subPropertyOf :address.
 
-ex:city a rdf:Property ;
-    rdfs:label "City" ;
-    rdfs:domain ex:Address ;
-    rdfs:range xsd:string .
+:Job a rdfs:Class, sh:NodeShape;
+  rdfs:label "Job"@en.
 
-ex:postalCode a rdf:Property ;
-    rdfs:label "Postal Code" ;
-    rdfs:domain ex:Address ;
-    rdfs:range xsd:string .
+:lastName a rdf:Property;
+  rdfs:domain :Person;
+  rdfs:label "Last Name";
+  rdfs:range xsd:string.
 
-ex:homeAddress a rdf:Property ;
-    rdfs:subPropertyOf ex:address ;
-    rdfs:label "Home Address" ;
-    rdfs:domain ex:Person ;
-    rdfs:range ex:Address .
+:Person a owl:Class, sh:NodeShape;
+  rdfs:label "Person";
+  sh:property [
+      sh:datatype xsd:string;
+      sh:maxCount 1;
+      sh:minCount 1;
+      sh:path :firstName
+    ], [
+      sh:datatype xsd:string;
+      sh:maxCount 1;
+      sh:minCount 1;
+      sh:path :lastName
+    ], [
+      sh:datatype xsd:integer;
+      sh:maxCount 1;
+      sh:minCount 0;
+      sh:path :age
+    ], [
+      sh:class :Address;
+      sh:maxCount 1;
+      sh:minCount 0;
+      sh:path :address
+    ], [
+      sh:datatype xsd:string;
+      sh:maxCount 1;
+      sh:minCount 1;
+      sh:path :firstName
+    ], [
+      sh:datatype xsd:string;
+      sh:maxCount 1;
+      sh:minCount 1;
+      sh:path :lastName
+    ], [
+      sh:datatype xsd:integer;
+      sh:maxCount 1;
+      sh:minCount 0;
+      sh:path :age
+    ], [
+      sh:class :Address;
+      sh:maxCount 1;
+      sh:minCount 0;
+      sh:path :address
+    ].
 
-ex:workAddress a rdf:Property ;
-    rdfs:subPropertyOf ex:address ;
-    rdfs:label "Work Address" ;
-    rdfs:domain ex:Person ;
-    rdfs:range ex:Address .
+:postalCode a rdf:Property;
+  rdfs:domain :Address;
+  rdfs:label "Postal Code";
+  rdfs:range xsd:string.
+
+:street a rdf:Property;
+  rdfs:domain :Address;
+  rdfs:label "Street";
+  rdfs:range xsd:string.
+
+:workAddress a rdf:Property;
+  rdfs:domain :Person;
+  rdfs:label "Work Address";
+  rdfs:range :Address;
+  rdfs:subPropertyOf :address.
+
+
+ ### Generated by ontomanager.konnektr.io ###
