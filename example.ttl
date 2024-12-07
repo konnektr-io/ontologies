@@ -97,24 +97,6 @@
   rdfs:label "Person";
   sh:property [
       sh:datatype xsd:string;
-      sh:path :firstName
-    ], [
-      sh:datatype xsd:string;
-      sh:maxCount 1;
-      sh:minCount 1;
-      sh:path :lastName
-    ], [
-      sh:datatype xsd:integer;
-      sh:maxCount 1;
-      sh:minCount 0;
-      sh:path :age
-    ], [
-      sh:class :Address;
-      sh:maxCount 1;
-      sh:minCount 0;
-      sh:path :address
-    ], [
-      sh:datatype xsd:string;
       sh:maxCount 1;
       sh:minCount 1;
       sh:path :firstName
