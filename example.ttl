@@ -132,6 +132,9 @@
       sh:maxCount 1;
       sh:minCount 0;
       sh:path :address
+    ], [
+      sh:class :Job;
+      sh:path :hasJob
     ].
 
 :postalCode a rdf:Property;
