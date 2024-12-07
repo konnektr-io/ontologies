@@ -15,7 +15,7 @@
   rdfs:range :Address.
 
 :Address a owl:Class, sh:NodeShape;
-  rdfs:label "Address";
+  rdfs:label "Address"@en;
   sh:property [
       sh:datatype xsd:string;
       sh:maxCount 1;
@@ -45,11 +45,11 @@
   rdfs:range xsd:string.
 
 :Customer a owl:Class;
-  rdfs:label "Customer";
+  rdfs:label "Customer"@en;
   rdfs:subClassOf :Person.
 
 :Employee a owl:Class;
-  rdfs:label "Employee";
+  rdfs:label "Employee"@en;
   rdfs:subClassOf :Person.
 
 :firstName a rdf:Property;
@@ -77,7 +77,7 @@
   rdfs:range xsd:string.
 
 :Person a owl:Class, sh:NodeShape;
-  rdfs:label "Person";
+  rdfs:label "Person"@en;
   sh:property [
       sh:datatype xsd:string;
       sh:maxCount 1;
