@@ -50,7 +50,7 @@
   rdfs:subClassOf :Person.
 
 :Employee a owl:Class;
-  rdfs:label "Employee"@en;
+  rdfs:label "Employee"@en, "Werknemer"@nl;
   rdfs:subClassOf :Person.
 
 :firstName a rdf:Property;
