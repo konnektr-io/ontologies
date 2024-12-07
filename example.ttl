@@ -32,54 +32,6 @@
       sh:minCount 1;
       sh:path :postalCode;
       sh:pattern "^[0-9]{5}$"
-    ], [
-      sh:datatype xsd:string;
-      sh:maxCount 1;
-      sh:minCount 1;
-      sh:path :street
-    ], [
-      sh:datatype xsd:string;
-      sh:maxCount 1;
-      sh:minCount 1;
-      sh:path :city
-    ], [
-      sh:datatype xsd:string;
-      sh:maxCount 1;
-      sh:minCount 1;
-      sh:path :postalCode;
-      sh:pattern "^[0-9]{5}$"
-    ], [
-      sh:datatype xsd:string;
-      sh:maxCount 1;
-      sh:minCount 1;
-      sh:path :street
-    ], [
-      sh:datatype xsd:string;
-      sh:maxCount 1;
-      sh:minCount 1;
-      sh:path :city
-    ], [
-      sh:datatype xsd:string;
-      sh:maxCount 1;
-      sh:minCount 1;
-      sh:path :postalCode;
-      sh:pattern "^[0-9]{5}$"
-    ], [
-      sh:datatype xsd:string;
-      sh:maxCount 1;
-      sh:minCount 1;
-      sh:path :street
-    ], [
-      sh:datatype xsd:string;
-      sh:maxCount 1;
-      sh:minCount 1;
-      sh:path :city
-    ], [
-      sh:datatype xsd:string;
-      sh:maxCount 1;
-      sh:minCount 1;
-      sh:path :postalCode;
-      sh:pattern "^[0-9]{5}$"
     ].
 
 :age a rdf:Property;
@@ -127,29 +79,6 @@
 :Person a owl:Class, sh:NodeShape;
   rdfs:label "Person";
   sh:property [
-      sh:datatype xsd:string;
-      sh:maxCount 1;
-      sh:minCount 1;
-      sh:path :firstName
-    ], [
-      sh:datatype xsd:string;
-      sh:maxCount 1;
-      sh:minCount 1;
-      sh:path :lastName
-    ], [
-      sh:datatype xsd:integer;
-      sh:maxCount 1;
-      sh:minCount 0;
-      sh:path :age
-    ], [
-      sh:class :Address;
-      sh:maxCount 1;
-      sh:minCount 0;
-      sh:path :address
-    ], [
-      sh:class :Job;
-      sh:path :hasJob
-    ], [
       sh:datatype xsd:string;
       sh:maxCount 1;
       sh:minCount 1;
