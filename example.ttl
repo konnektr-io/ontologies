@@ -37,7 +37,7 @@
 
 :age a rdf:Property;
   rdfs:domain :Person;
-  rdfs:label "Age"@en;
+  rdfs:label "Age"@en, "Leeftijd"@nl;
   rdfs:range xsd:integer.
 
 :city a rdf:Property;
