@@ -46,7 +46,7 @@
   rdfs:range xsd:string.
 
 :Customer a owl:Class;
-  rdfs:label "Customer"@en;
+  rdfs:label "Customer"@en, "Klant"@nl;
   rdfs:subClassOf :Person.
 
 :Employee a owl:Class;
