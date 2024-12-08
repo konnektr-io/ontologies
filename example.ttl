@@ -4,7 +4,6 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
 @prefix sh: <http://www.w3.org/ns/shacl#>.
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
-@prefix ex: <https://konnektr.io/ontologies/example#>.
 
 : a owl:Ontology;
   rdfs:comment "An example ontology for testing purposes.";
@@ -33,11 +32,29 @@
       sh:minCount 1;
       sh:path :postalCode;
       sh:pattern "^[0-9]{5}$"
+    ], [
+      sh:datatype xsd:string;
+      sh:maxCount 1;
+      sh:minCount 1;
+      sh:path :street
+    ], [
+      sh:datatype xsd:string;
+      sh:maxCount 1;
+      sh:minCount 1;
+      sh:path :city
+    ], [
+      sh:datatype xsd:string;
+      sh:maxCount 1;
+      sh:minCount 1;
+      sh:path :postalCode;
+      sh:pattern "^[0-9]{5}$"
     ].
 
 :age a rdf:Property;
   rdfs:domain :Person;
-  rdfs:label "Age"@en, "Leeftijd"@nl;
+  rdfs:label
+    "Age"@en,
+    "Leeftijd"@nl;
   rdfs:range xsd:integer.
 
 :city a rdf:Property;
@@ -46,11 +63,15 @@
   rdfs:range xsd:string.
 
 :Customer a owl:Class;
-  rdfs:label "Customer"@en, "Klant"@nl;
+  rdfs:label
+    "Customer"@en,
+    "Klant"@nl;
   rdfs:subClassOf :Person.
 
 :Employee a owl:Class;
-  rdfs:label "Employee"@en, "Werknemer"@nl;
+  rdfs:label
+    "Employee"@en,
+    "Werknemer"@nl;
   rdfs:subClassOf :Person.
 
 :firstName a rdf:Property;
@@ -80,6 +101,29 @@
 :Person a owl:Class, sh:NodeShape;
   rdfs:label "Person"@en;
   sh:property [
+      sh:datatype xsd:string;
+      sh:maxCount 1;
+      sh:minCount 1;
+      sh:path :firstName
+    ], [
+      sh:datatype xsd:string;
+      sh:maxCount 1;
+      sh:minCount 1;
+      sh:path :lastName
+    ], [
+      sh:datatype xsd:integer;
+      sh:maxCount 1;
+      sh:minCount 0;
+      sh:path :age
+    ], [
+      sh:class :Address;
+      sh:maxCount 1;
+      sh:minCount 0;
+      sh:path :address
+    ], [
+      sh:class :Job;
+      sh:path :hasJob
+    ], [
       sh:datatype xsd:string;
       sh:maxCount 1;
       sh:minCount 1;
